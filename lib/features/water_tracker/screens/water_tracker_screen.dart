@@ -26,7 +26,6 @@ class WaterTrackerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final totalIntake = intakes.fold(0, (sum, intake) => sum + intake.effectiveVolume);
     final progress = dailyGoal > 0 ? totalIntake / dailyGoal : 0.0;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Водный баланс'),
@@ -52,17 +51,13 @@ class WaterTrackerScreen extends StatelessWidget {
                 WaterLevelIndicator(progress: progress.toDouble()),
               ],
             ),
-
             const SizedBox(height: 20),
-
             SmartWaterButton(
               currentVolume: totalIntake,
               dailyGoal: dailyGoal,
               onPressed: onAdd,
             ),
-
             const SizedBox(height: 20),
-
             Expanded(
               child: IntakeListView(
                 intakes: intakes,
