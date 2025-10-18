@@ -55,6 +55,7 @@ class _WaterTrackerContainerState extends State<WaterTrackerContainer> {
           onGoalChange: _updateDailyGoal,
         );
 
+
       case Screen.addIntake:
         return AddIntakeScreen(
           onSave: _addIntake,
